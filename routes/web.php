@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToDoListController;
 
@@ -7,10 +8,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Homepage
 Route::get('/CPhomepage', function () {
     return view('homepage');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Note
 Route::get('/note', function () {
@@ -46,3 +50,11 @@ Route::delete('/passwords/{id}', [PasswordController::class, 'destroy'])->name('
 Route::get('/musicplayer', function () {
     return view('musicplayer');
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

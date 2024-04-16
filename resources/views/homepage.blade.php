@@ -82,7 +82,7 @@
                             <h3 class="mb-5 text-3xl font-semibold leading-tight text-gray-900 md:text-5xl">CATATAN PINTAR</h3>
                             <p class="px-5 mb-10 text-xl text-gray-700">Welcome to Catatan Pintar! Enhance your productivity with our all-in-one app featuring note-taking, to-do list, timers, reminders, password management, and playlist storage.</p>
                             <ul class="flex flex-wrap justify-center">
-                                <li><a class="mx-3 main-btn gradient-btn" href="/CPlogin">LOG IN</a></li>
+                                <li><a class="mx-3 main-btn gradient-btn" href="/login">LOG IN</a></li>
                                 <li><a class="mx-3 main-btn gradient-btn page-scroll" href="#service">OUR FEATURES</i></a></li>
                             </ul>
                         </div> <!-- header content -->
