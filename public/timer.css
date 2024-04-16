@@ -1,0 +1,67 @@
+
+@layer components {
+    .sidebar {
+        transition: all 0.4s ease-in-out;
+    }
+}
+.sidebar:hover{
+    flex: 0.25;
+}
+body{
+    font-family: "Roboto Mono", monospace;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-item {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.countdown-value {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.countdown-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.input-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input-wrapper label {
+  font-weight: bold;
+}
+
+.input-wrapper input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-wrapper button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-wrapper button:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+

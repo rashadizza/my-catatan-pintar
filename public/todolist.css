@@ -1,0 +1,16 @@
+
+@layer components {
+    .sidebar {
+        transition: all 0.4s ease-in-out;
+    }
+}
+.sidebar:hover{
+    flex: 0.4;
+}
+body{
+    font-family: "Roboto Mono", monospace;
+}
+
+.flex-container {
+    display: flex;
+}
