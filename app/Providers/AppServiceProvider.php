@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Reminder;
 use Illuminate\Support\ServiceProvider;
+use App\Policies\ReminderPolicy;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,4 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    protected $policies = [
+        Reminder::class => ReminderPolicy::class,
+    ];
 }
