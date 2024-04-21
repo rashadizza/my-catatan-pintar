@@ -159,17 +159,17 @@
             </div>
             {{-- End of Table Reminder --}}
             {{-- Modal Reminder --}}
-            <button id="testButton"
+            {{-- <button id="testButton"
                 class="mb-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Test
-                Reminder</button>
+                Reminder</button> --}}
             <div id="reminderPopup"
                 class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-red-500 shadow-lg border border-gray-300 rounded-lg p-4 justify-items-stretch">
-                <h3 class="text-xl text-center font-bold text-white mb-2">Tubes ABP Frontend</h3>
-                <p class="text-xl text-center text-white mb-4">2024-4-1 10:00 AM</p>
-                <p class="text-xl text-center text-white mb-4">Priority: High</p>
-                <p class="font-bold text-xl text-center text-white mb-4">You have 7 minutes left !</p>
+                <h3 class="text-xl text-center font-bold text-white mb-2">Reminder Title Here</h3>
+                <p class="text-xl text-center text-white mb-4">Date & Time Here</p>
+                <p class="text-xl text-center text-white mb-4">Priority Here</p>
+                <p class="font-bold text-xl text-center text-white mb-4">Custom Reminder Message</p>
                 <button id="closeButton"
-                    class="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded justify-self-center ">Close</button>
+                    class="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded justify-self-center">Close</button>
             </div>
             {{-- End of Modal Reminder --}}
         </div>
@@ -177,19 +177,60 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script>
-        const testButton = document.getElementById('testButton');
-        const reminderPopup = document.getElementById('reminderPopup');
+        // const testButton = document.getElementById('testButton');
+        // const reminderPopup = document.getElementById('reminderPopup');
 
-        testButton.addEventListener('click', () => {
-            reminderPopup.classList.add('grid');
-            reminderPopup.classList.remove('hidden');
-        });
+        // testButton.addEventListener('click', () => {
+        //     reminderPopup.classList.add('grid');
+        //     reminderPopup.classList.remove('hidden');
+        // });
 
         const closeButton = document.getElementById('closeButton');
         closeButton.addEventListener('click', () => {
             reminderPopup.classList.add('hidden');
             reminderPopup.classList.remove('grid');
         });
+
+        var reminders = @json($reminders);
+
+        function checkReminders() {
+            const now = new Date();
+            reminders.forEach(reminder => {
+                let reminderTime = new Date(reminder.date_time);
+                if (reminderTime <= now && !reminder.triggered) {
+                    showReminderPopup(reminder);
+                    reminder.triggered = true;
+                }
+            });
+        }
+
+        function showReminderPopup(reminder) {
+            const modal = document.getElementById('reminderPopup');
+
+            modal.className =
+                'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 shadow-lg border border-gray-300 rounded-lg p-4 justify-items-stretch hidden';
+
+            let bgColorClass = 'bg-green-500'; 
+            if (reminder.priority === 'High') {
+                bgColorClass = 'bg-red-500';
+            } else if (reminder.priority === 'Medium') {
+                bgColorClass = 'bg-yellow-500';
+            } else if (reminder.priority === 'Low') {
+                bgColorClass = 'bg-green-500';
+            }
+
+            modal.classList.add(bgColorClass); 
+
+            modal.querySelector('h3').textContent = reminder.title;
+            modal.querySelector('p:nth-of-type(1)').textContent = reminder.date_time;
+            modal.querySelector('p:nth-of-type(2)').textContent = 'Priority: ' + reminder.priority;
+            modal.querySelector('p:nth-of-type(3)').textContent = 'This is your reminder!';
+
+            modal.classList.add('grid');
+            modal.classList.remove('hidden');
+        }
+
+        setInterval(checkReminders, 1000);
     </script>
 </body>
 
