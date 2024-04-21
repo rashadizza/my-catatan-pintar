@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li class="min-w-max">
-                            <a href="/reminder"
+                            <a href="/reminders"
                                 class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
                                     <i class="lni lni-alarm" style="font-size: 25px;"></i>
                                 <span class="group-hover:text-white">Reminder</span>
@@ -80,7 +80,7 @@
                 <div style="height: 37%"></div>
                 <div style="bottom: 0;" class=" w-max -mb-3">
                     <ul class="mt-6 space-y-2 tracking-wide">
-                        <a href="#"
+                        <a href="{{ route('profile.edit') }}"
                             class="btn rounded-md flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 512 512">
                                 <path fill="#000000" class="fill-current group-hover:text-white" fill-rule="evenodd"

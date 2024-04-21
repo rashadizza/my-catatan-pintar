@@ -4,9 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToDoListController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ReminderController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
 Route::get('/CPhomepage', function () {
@@ -35,12 +36,13 @@ Route::middleware('auth')->group(function () {
     });
 
     // Reminder
-    Route::get('/reminder', function () {
-        return view('reminder');
-    });
-    Route::get('/add-reminder', function () {
-        return view('add_reminder');
-    });
+    // Route::get('/reminder', function () {
+    //     return view('reminder');
+    // });
+    // Route::get('/add-reminder', function () {
+    //     return view('add_reminder');
+    // });
+    Route::resource('reminders', ReminderController::class);
 
     // Password Manager
     Route::get('/passwords', [PasswordController::class, 'index'])->name('passwords.index');

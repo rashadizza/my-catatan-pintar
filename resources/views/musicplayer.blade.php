@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="min-w-max">
-                            <a href="/reminder" aria-label="dashboard"
+                            <a href="/reminders" aria-label="dashboard"
                                 class="btn flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 512 512">
                                     <path fill="#000000" class="fill-current group-hover:text-white" fill-rule="evenodd"

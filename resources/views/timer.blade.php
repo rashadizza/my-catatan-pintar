@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="min-w-max">
-                            <a href="/reminder"
+                            <a href="/reminders"
                                 class="btn flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
                                     <i class="lni lni-alarm" style="font-size: 25px;"></i>
                                 <span class="group-hover:text-white">Reminder</span>
