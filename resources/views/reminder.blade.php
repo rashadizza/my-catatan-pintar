@@ -163,7 +163,7 @@
                 class="mb-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Test
                 Reminder</button>
             <div id="reminderPopup"
-                class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-red-500 shadow-lg border border-gray-300 rounded-lg p-4 grid justify-items-stretch">
+                class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-red-500 shadow-lg border border-gray-300 rounded-lg p-4 justify-items-stretch">
                 <h3 class="text-xl text-center font-bold text-white mb-2">Tubes ABP Frontend</h3>
                 <p class="text-xl text-center text-white mb-4">2024-4-1 10:00 AM</p>
                 <p class="text-xl text-center text-white mb-4">Priority: High</p>
@@ -175,20 +175,22 @@
         </div>
         <!--====== CONTENT PART END ======-->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script>
         const testButton = document.getElementById('testButton');
         const reminderPopup = document.getElementById('reminderPopup');
 
         testButton.addEventListener('click', () => {
+            reminderPopup.classList.add('grid');
             reminderPopup.classList.remove('hidden');
         });
 
         const closeButton = document.getElementById('closeButton');
         closeButton.addEventListener('click', () => {
             reminderPopup.classList.add('hidden');
+            reminderPopup.classList.remove('grid');
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>
