@@ -1,16 +1,30 @@
-
+/* SIDEBAR  */
 @layer components {
     .sidebar {
-        transition: all 0.4s ease-in-out;
+        width: 200px; 
+        transition: width 0.4s ease-in-out;
     }
 }
-.sidebar:hover{
-    flex: 0.4;
+
+.sidebar:hover {
+    width: 300px; 
 }
-body{
+
+body {
     font-family: "Roboto Mono", monospace;
 }
 
 .flex-container {
     display: flex;
+}
+
+.text-gradient {
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #1A1B77, #69B9DE);
+}
+
+.main-content {
+    flex: 3;
+    margin-left: 40px; 
 }

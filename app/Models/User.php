@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reminder::class);
     }
+
+    public function todolists()
+    {
+        return $this->hasMany(ToDoList::class);
+    }
 }

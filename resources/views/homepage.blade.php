@@ -228,9 +228,9 @@
                         </div>
                         <div class="mb-8 pricing-list">
                             <ul>
-                                <li><i class="lni-check-mark-circle"></i> ...</li>
-                                <li><i class="lni-check-mark-circle"></i> ...</li>
-                                <li><i class="lni-check-mark-circle"></i> ...</li>
+                                <li><i class="lni-check-mark-circle"></i> Streamlines workflow for managing tasks and deadlines.</li>
+                                <li><i class="lni-check-mark-circle"></i> Features reminders and priority settings for timely completion.<li>
+                                <li><i class="lni-check-mark-circle"></i> Eliminates unnecessary steps and provides intuitive interfaces.</li>
                             </ul>
                         </div>
                         <div class="bottom-shape">
@@ -249,9 +249,9 @@
                         </div>
                         <div class="mb-8 pricing-list">
                             <ul>
-                                <li><i class="lni-check-mark-circle"></i> ..</li>
-                                <li><i class="lni-check-mark-circle"></i> ...</li>
-                                <li><i class="lni-check-mark-circle"></i> ...</li>
+                                <li><i class="lni-check-mark-circle"></i> Categorizes tasks, and creates note and todolist task </li>
+                                <li><i class="lni-check-mark-circle"></i> Adapts to preferred organizational methods</li>
+                                <li><i class="lni-check-mark-circle"></i> Prevent overdue tasks with the reminder feature.</li>
                             </ul>
                         </div>
                         <div class="bottom-shape">
@@ -267,9 +267,9 @@
                         </div>
                         <div class="mb-8 pricing-list">
                             <ul>
-                                <li><i class="lni-check-mark-circle"></i> ..</li>
-                                <li><i class="lni-check-mark-circle"></i> ..</li>
-                                <li><i class="lni-check-mark-circle"></i> ..</li>
+                                <li><i class="lni-check-mark-circle"></i> Offers a minimalist design and distraction-free environment.</li>
+                                <li><i class="lni-check-mark-circle"></i> Reduces visual clutter to promote deep work.</li>
+                                <li><i class="lni-check-mark-circle"></i> Integrates Pomodoro technique for effective attention management.</li>
                             </ul>
                         </div>
                         <div class="bottom-shape">

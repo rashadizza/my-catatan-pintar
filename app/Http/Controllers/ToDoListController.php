@@ -7,18 +7,38 @@ use App\Models\ToDoList;
 
 class ToDoListController extends Controller
 {
-    public function index(){
-        return view('todolist');
+    public function index()
+    {
+        // Hanya menampilkan ToDo list milik pengguna yang sedang login
+        $todolist = auth()->user()->todolists;
+
+        return view('todolist', [
+            'todolist' => $todolist
+        ]);
     }
 
-    public function stote(){
-        $atributes = request()->validate([
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
             'title' => 'required',
             'description' => 'nullable'
         ]);
 
-        ToDoList::create($atributes);
+        // Menyimpan ToDo list dengan menambahkan user_id yang sesuai
+        auth()->user()->todolists()->create($attributes);
         
-        return redirect('/');
+        return redirect('/todolist');
+    }
+
+    public function update(ToDoList $todo)
+    {
+        $todo->update(['isDone' => !$todo->isDone]);
+        return redirect('/todolist');
+    }
+    
+    public function destroy(ToDoList $todo)
+    {
+        $todo->delete();
+        return redirect('/todolist');
     }
 }
