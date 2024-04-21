@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->dateTime('date_time');
             $table->enum('priority', ['High', 'Medium', 'Low']);
-            $table->boolean('completed')->default(false);
             $table->timestamps();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

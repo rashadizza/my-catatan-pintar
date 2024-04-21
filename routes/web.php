@@ -39,9 +39,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/reminder', function () {
     //     return view('reminder');
     // });
-    // Route::get('/add-reminder', function () {
-    //     return view('add_reminder');
-    // });
+    Route::get('/add-reminder', [ReminderController::class, 'create'])->name('reminders.create');
     Route::resource('reminders', ReminderController::class);
 
     // Password Manager
