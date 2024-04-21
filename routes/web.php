@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToDoListController;
+use App\Http\Controllers\TimerController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ReminderController;
 
@@ -29,11 +30,11 @@ Route::middleware('auth')->group(function () {
     // ToDoList
     Route::get('/todolist', [ToDoListController::class, 'index']);
     Route::post('/todolist', [ToDoListController::class, 'store']);
+    Route::patch('/todolist/{todo}', [ToDoListController::class, 'update']);
+    Route::delete('/todolist/{todo}', [ToDoListController::class, 'destroy']);
 
     // Timer
-    Route::get('/timer', function () {
-        return view('timer');
-    });
+    Route::get('/timer', [TimerController::class, 'index']);
 
     // Reminder
     // Route::get('/reminder', function () {
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/musicplayer', function () {
         return view('musicplayer');
     });
+
+    // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
