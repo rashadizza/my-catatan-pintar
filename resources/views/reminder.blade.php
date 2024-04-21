@@ -19,7 +19,7 @@
 
     <!--====== Line Icons css ======-->
     <link rel="stylesheet" href="assets/css/LineIcons.css">
-
+    <audio id="notifAudio" src="{{ asset('timerNotif.mp3') }}" hidden></audio>
 </head>
 
 <body>
@@ -206,10 +206,13 @@
 
         function showReminderPopup(reminder) {
             const modal = document.getElementById('reminderPopup');
+            const audio = document.getElementById('notifAudio');
+
+            audio.volume = 0.2;
+            audio.play();
 
             modal.className =
                 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 shadow-lg border border-gray-300 rounded-lg p-4 justify-items-stretch hidden';
-
             let bgColorClass = 'bg-green-500'; 
             if (reminder.priority === 'High') {
                 bgColorClass = 'bg-red-500';
@@ -218,8 +221,7 @@
             } else if (reminder.priority === 'Low') {
                 bgColorClass = 'bg-green-500';
             }
-
-            modal.classList.add(bgColorClass); 
+            modal.classList.add(bgColorClass);
 
             modal.querySelector('h3').textContent = reminder.title;
             modal.querySelector('p:nth-of-type(1)').textContent = reminder.date_time;
