@@ -15,9 +15,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Scripts -->
-    <link rel="stylesheet" href="note.css">
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +28,7 @@
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/LineIcons.css">
+    <link rel="stylesheet" href="note.css">
 
 </head>
 
@@ -130,49 +128,49 @@
                                 Tanggal Dibuat
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Tanggal Terakhir Di Edit
+                                Tanggal Terakhir Di Ubah
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
+                                <span class="sr-only">Ubah</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                            @foreach (auth()->user()->notes as $note)
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-                                    <th scope="row">{{ $note->id }}</th>
-                                    <td>{{ $note->title }}</td>
-                                    <td>{{ $note->created_at }}</td>
-                                    <td>{{ $note->updated_at }}</td>
-                                    <td style="text-align: right">
-                                        <a type="button"
-                                            class="faust px-4 py-2 text-base font-medium text-center inline-flex items-center text-white bg-sky-600 rounded-lg hover:bg-[#fd53b8] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            href="{{ route('notes.edit', ['id' => $note->id]) }}"> <svg
-                                                class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2"
-                                                    d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
-                                            </svg>
-                                            Edit
-                                        </a>
-                                        <a type="button"
-                                            class="faust px-4 py-2 text-base font-medium text-center inline-flex items-center text-white bg-[#ff0000] rounded-lg hover:bg-[#fd53b8] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            href="{{ route('notes.delete', ['id' => $note->id]) }}"> <svg
-                                                class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2"
-                                                    d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
-                                            </svg>
-                                            Hapus
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach (auth()->user()->notes as $note)
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
+                                <th scope="row">{{ $note->id }}</th>
+                                <td>{{ $note->title }}</td>
+                                <td>{{ $note->created_at }}</td>
+                                <td>{{ $note->updated_at }}</td>
+                                <td style="text-align: right">
+                                    <a type="button"
+                                        class="faust px-4 py-2 text-base font-medium text-center inline-flex items-center text-white bg-sky-600 rounded-lg hover:bg-[#fd53b8] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        href="{{ route('notes.edit', ['id' => $note->id]) }}"> <svg
+                                            class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
+                                        </svg>
+                                        Edit
+                                    </a>
+                                    <a type="button"
+                                        class="faust px-4 py-2 text-base font-medium text-center inline-flex items-center text-white bg-[#ff0000] rounded-lg hover:bg-[#fd53b8] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        href="{{ route('notes.delete', ['id' => $note->id]) }}"> <svg
+                                            class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+                                        </svg>
+                                        Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

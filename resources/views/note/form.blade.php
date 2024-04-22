@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
 
-    <!-- SimpleMD -->
+    <!-- SimpleMDE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
@@ -32,9 +32,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/LineIcons.css">
-
-    <!-- Scripts -->
     <link rel="stylesheet" href="/note2.css">
+
 </head>
 
 <body>
@@ -47,9 +46,10 @@
                         <input type="hidden" name="id" value="{{ $note->id }}" />
                     @endif
                     <div class="form-group">
-                        <label style="font-family: Helvetica; font-size:34px; padding-top:8px" for="title">Judul</label>
+                        <label style="font-family: Helvetica; font-size:34px; padding-top:8px"
+                            for="title">Judul</label>
                         <input type="text" class="form-control" name="title" id="title"
-                            placeholder="Enter title" value="{{ isset($note) ? $note->title : '' }}">
+                            placeholder="Masukkan judul" value="{{ isset($note) ? $note->title : '' }}">
                     </div>
                     <br>
                     <div class="form-group">
@@ -120,7 +120,6 @@
         });
     </script>
 
-
     <!-- Fullscreen -->
     <script>
         if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
@@ -148,7 +147,6 @@
 
             document.addEventListener('fullscreenchange', handleFullscreen);
             document.addEventListener('webkitfullscreenchange', handleFullscreen);
-
 
             function handleFullscreen() {
                 if (document.fullscreen || document.webkitFullscreenElement) {

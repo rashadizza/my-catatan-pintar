@@ -19,7 +19,6 @@ body {
 }
 
 .flex {
-    /*Flexbox for containers*/
     display: flex;
     bottom: 0;
     justify-content: center;
@@ -42,7 +41,6 @@ body {
     background-color: blue;
 }
 
-/* Animation */
 .parallax > use {
     animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
@@ -77,7 +75,6 @@ body {
     }
 }
 
-/*Shrinking for mobile*/
 @media (max-width: 768px) {
     .waves {
         height: 40px;

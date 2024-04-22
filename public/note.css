@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
 * {
     margin: 0;
     padding: 0;
@@ -78,8 +80,6 @@ body {
     display: none;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-
 .content h2 {
     color: #fff;
     left: 240px;
@@ -92,17 +92,14 @@ body {
 .content h2:nth-child(1) {
     color: #66fcfb;
     animation: animate 2s ease-in-out infinite;
-
 }
 
 .content h2:nth-child(2) {
     color: transparent;
     -webkit-text-stroke: 2px #1a1b77;
-
 }
 
 @keyframes animate {
-
     0%,
     100% {
         clip-path: polygon(0% 45%,
