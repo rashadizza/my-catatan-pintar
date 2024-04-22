@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Password::class);
     }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
 }

@@ -23,9 +23,12 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     // Note
-    Route::get('/note', function () {
-        return view('note');
-    });
+    Route::get('/note', [noteController::class, 'index'])->name('notes.index');
+    Route::get('/note/note/{id}', [noteController::class, 'note'])->name('notes.note');
+    Route::get('/note/add', [noteController::class, 'add'])->name('notes.add');
+    Route::get('/note/delete/{id}', [noteController::class, 'delete'])->name('notes.delete');
+    Route::get('/note/edit/{id}', [noteController::class, 'edit'])->name('notes.edit');
+    Route::post('/note/save', [noteController::class, 'save'])->name('notes.save'); 
 
     // ToDoList
     Route::get('/todolist', [ToDoListController::class, 'index']);
