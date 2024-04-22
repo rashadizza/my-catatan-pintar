@@ -26,7 +26,7 @@
                     <a href="/reminder" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
                         <i class="lni lni-alarm"></i> Reminder
                     </a>
-                    <a href="/password" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
+                    <a href="/passwords" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
                         <i class="lni lni-lock"></i> Password Manager
                     </a>
                     <a href="/musicplayer" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">

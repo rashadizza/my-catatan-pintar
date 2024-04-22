@@ -2,58 +2,67 @@
 	<html>
 	    <head>
 			<title>Tambah Akun</title>
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+			<script src="main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+			<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+			<script src="https://cdn.tailwindcss.com"></script>
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+				rel="stylesheet">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+			<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+			<link rel="stylesheet" href="assets/css/LineIcons.css">
 			<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 			<script src="main.js"></script>
 			<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	    </head>
 	    <body>
-			
-			<header>
-				<nav>
-					<div><a><i class="bi bi-shield-lock-fill" ></i> Password Manager</a></div>
-					<ul>
-					</ul>
-				</nav>
-			</header>
+			<div style="background-image: url('{{ asset('bg_pass.png') }}');" class="h-screen bg-cover">
+				<header>
+					<nav>
+						<div><a><i class="bi bi-shield-lock-fill" ></i> Password Manager</a></div>
+						<ul>
+						</ul>
+					</nav>
+				</header>
 
-			<div class="row justify-content-center">
-				<div class="col-md-4">
-					<div class="form-group margin">
-					<form class="border" method="POST" action="{{ empty($password->id) ? route($action) : route($action, $password->id) }}">
-						<center><label><h2>Password Manager</h2></label></center>
-						@csrf
-						@if (!empty($password->id))
-							@method($method) <!-- This directive spoofs a PUT request -->
-						@endif
+				<div class="flex justify-center mt-10" >
+					<div class="w-full max-w-md">
+						<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="{{ empty($password->id) ? route($action) : route($action, $password->id) }}">
+							<div class="mb-4 text-center">
+								<h2 class="font-bold text-xl">Password Manager</h2>
+							</div>
+							@csrf
+							@if (!empty($password->id))
+								@method($method) <!-- This directive spoofs a PUT request -->
+							@endif
 
-						<div class="form-group">
-							<label for="exampleInputAccount1">Akun</label>
-							<input type="text" class="form-control" name="account" id="exampleInputAccount1" value="{{ $password->account }}" /><br>
-						</div>
+							<div class="mb-4">
+								<label for="exampleInputAccount1" class="block text-gray-700 text-sm font-bold mb-2">Akun</label>
+								<input type="text" name="account" id="exampleInputAccount1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->account }}" />
+							</div>
 
-						<div class="form-group">
-							<label for="exampleInputEmail1">Username/Email</label>
-							<input type="text" class="form-control" name="email" id="exampleInputEmail1" value="{{ $password->email }}" /><br>
-						</div>
+							<div class="mb-4">
+								<label for="exampleInputEmail1" class="block text-gray-700 text-sm font-bold mb-2">Username/Email</label>
+								<input type="text" name="email" id="exampleInputEmail1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->email }}" />
+							</div>
 
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" name="password" id="exampleInputPassword1" value="{{ $password->password }}" /><br>
-						</div>
+							<div class="mb-6">
+								<label for="exampleInputPassword1" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+								<input type="password" name="password" id="exampleInputPassword1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->password }}" />
+							</div>
 
-						<div style="text-align:center">
-							<button type="submit" class="btn btn-primary" name="login-submit">{{ empty($password->id) ? 'Create' : 'Save' }}</button>
-						</div>
-					</form>
+							<div class="flex items-center justify-center">
+								<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+									{{ empty($password->id) ? 'Create' : 'Save' }}
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-			
-
-
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	    </body>
 	</html>
 

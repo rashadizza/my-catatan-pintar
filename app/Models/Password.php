@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Password extends Model
 {
     protected $fillable = ['account', 'email_encrypted', 'password_encrypted'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
