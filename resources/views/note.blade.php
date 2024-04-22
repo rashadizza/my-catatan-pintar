@@ -61,7 +61,7 @@
                             </a>
                         </li>
                         <li class="min-w-max">
-                            <a href="'/password'"
+                            <a href="/passwords"
                                 class="btn flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
                                     <i class="lni lni-lock" style="font-size: 25px;"></i>
                                 <span class="group-hover:text-white">Password Manager</span>
