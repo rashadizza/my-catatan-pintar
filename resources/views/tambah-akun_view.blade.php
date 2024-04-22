@@ -49,9 +49,12 @@
 								<input type="text" name="email" id="exampleInputEmail1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->email }}" />
 							</div>
 
-							<div class="mb-6">
+							<div class="mb-6 relative">
 								<label for="exampleInputPassword1" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-								<input type="password" name="password" id="exampleInputPassword1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->password }}" />
+								<div class="flex items-center border rounded shadow appearance-none">
+									<input type="password" name="password" id="exampleInputPassword1" class="w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $password->password }}" />
+									<input type="button" onclick="togglePasswordVisibility()" value="Show" class="py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-r cursor-pointer text-xs" /></input>
+								</div>
 							</div>
 
 							<div class="flex items-center justify-center">
@@ -63,6 +66,19 @@
 					</div>
 				</div>
 			</div>
+			<script>
+				function togglePasswordVisibility() {
+					var passwordInput = document.getElementById('exampleInputPassword1');
+					var toggleButton = passwordInput.nextElementSibling;
+					if (passwordInput.type === 'password') {
+						passwordInput.type = 'text';
+						toggleButton.value = 'Hide';
+					} else {
+						passwordInput.type = 'password';
+						toggleButton.value = 'Show';
+					}
+				}
+			</script>
 	    </body>
 	</html>
 

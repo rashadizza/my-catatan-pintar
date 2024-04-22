@@ -106,12 +106,12 @@
 							<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
 								<div class="p-4 flex justify-between items-center bg-blue-100">
 									<div class="flex-grow text-center">
-										<h1 class="text-lg font-semibold text-blue-800">Daftar Akun</h1>
+										<h1 class="text-3xl font-bold text-blue-800">Daftar Akun</h1>
 									</div>
 									<a href="/passwords/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition ease-in-out duration-300">Tambah Akun</a>
 								</div>
-								<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-									<thead class="text-xs text-gray-700 uppercase bg-blue-200 dark:bg-blue-800 dark:text-white">
+								<table class="w-full text-base text-left text-black">
+									<thead class="text-lg uppercase bg-blue-200 dark:bg-blue-800 dark:text-white">
 										<tr>
 											<th scope="col" class="font-bold py-3 px-5">No</th>
 											<th scope="col" class="font-bold py-3 px-5">Akun</th>
@@ -122,11 +122,14 @@
 									</thead>
 									<tbody>
 										@foreach ($passwords as $index => $password)
-										<tr class="bg-blue-50 border-b dark:bg-blue-900 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-700">
+										<tr class="bg-blue-50 border-b dark:bg-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-400">
 											<td class="py-4 px-5">{{ $loop->iteration }}</td>
 											<td class="py-4 px-5">{{ $password->account }}</td>
 											<td class="py-4 px-5">{{ decrypt($password->email_encrypted) }}</td>
-											<td class="py-4 px-5">{{ decrypt($password->password_encrypted) }}</td>
+											<td class="py-4 px-5">
+												<input type="password" value="{{ decrypt($password->password_encrypted) }}" class="password-field" readonly>
+												<button onclick="togglePasswordVisibility(this)" class="toggle-password bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Show</button>
+											</td>
 											<td class="py-4 px-5 flex space-x-2">
 												<a href="{{ route('passwords.edit', $password->id) }}" class="bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-white inline-flex items-center transition ease-in-out duration-300">
 													Edit
@@ -162,6 +165,20 @@
 						element: document.getElementById("MDE")
 					});
 				</script>
+
+				<script>
+					function togglePasswordVisibility(button) {
+						var input = button.previousElementSibling;
+						if (input.type === "password") {
+							input.type = "text";
+							button.textContent = "Hide";
+						} else {
+							input.type = "password";
+							button.textContent = "Show";
+						}
+					}
+				</script>
+
 		</body>
 	</html>
 
