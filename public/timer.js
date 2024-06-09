@@ -186,6 +186,7 @@
     // Fungsi Bantuan / Tambahan 
     function playNotificationSound() {
         const audio = new Audio('/timerNotif.mp3');
+        audio.volume = 0.2;
         audio.play();
     }
 

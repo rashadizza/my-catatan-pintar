@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Menu') }}
         </h2>
     </x-slot>
 
@@ -23,7 +23,7 @@
                     <a href="/timer" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
                         <i class="lni lni-alarm-clock"></i> Timer
                     </a>
-                    <a href="/reminder" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
+                    <a href="/reminders" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">
                         <i class="lni lni-alarm"></i> Reminder
                     </a>
                     <a href="/passwords" class="mt-3 mb-2 text-black bg-white hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl w-full sm:w-auto px-5 py-2.5 text-center flex items-center icon">

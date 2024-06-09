@@ -11,13 +11,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="note.css">
+    <link rel="stylesheet" href="reminder.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <!--====== Line Icons css ======-->
@@ -27,7 +28,8 @@
 
 <body>
     <!--====== NAVBAR PART START ======-->
-    <div class="flex-container min-h-screen bg-white">
+    <div class="flex-container min-h-scree bg-white" style="background-image: url('{{ asset('bg_reminder.png') }}');"
+    class="h-screen bg-cover"">
         <div class="sidebar flex-item min-h-screen w-[3.35rem] overflow-hidden border-r hover:text-[#ffffff] hover:shadow-lg"
             style="background-image: linear-gradient(to bottom right, #1A1B77, #69B9DE);">
             <div class="h-screen flex-col justify-between pt-2 pb-6">
