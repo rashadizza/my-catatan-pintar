@@ -57,6 +57,9 @@ class AuthController extends Controller
             $user_loggedin['token_type']= 'Bearer';
             $user_loggedin['verified']= true;
         } else {
+            $token = $user->createToken("auth_token")->plainTextToken;
+            $user_loggedin['user_token']= $token;
+            $user_loggedin['token_type']= 'Bearer';
             $user_loggedin['verified']= false;
         }
         return response()->json(
