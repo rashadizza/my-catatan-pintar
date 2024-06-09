@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 //})->middleware('auth:sanctum');
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ReminderApiController;
+
 
 // Registration route
 Route::post('/register', [AuthController::class, 'register']);
@@ -23,4 +25,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    // Reminders
+    Route::get('/reminders', [ReminderApiController::class, 'index']);
+    Route::post('/reminders', [ReminderApiController::class, 'store']);
+    Route::delete('/reminders/{reminder}', [ReminderApiController::class, 'destroy']);
 });
