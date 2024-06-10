@@ -30,4 +30,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/reminders', [ReminderApiController::class, 'index']);
     Route::post('/reminders', [ReminderApiController::class, 'store']);
     Route::delete('/reminders/{reminder}', [ReminderApiController::class, 'destroy']);
+    Route::get('/songs', 'App\Http\Controllers\SongController@index');
 });
