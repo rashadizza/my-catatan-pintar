@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ReminderApiController;
+use App\Http\Controllers\Api\PasswordApiController;
+
 
 
 // Registration route
@@ -30,4 +32,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/reminders', [ReminderApiController::class, 'index']);
     Route::post('/reminders', [ReminderApiController::class, 'store']);
     Route::delete('/reminders/{reminder}', [ReminderApiController::class, 'destroy']);
+
+    //password manager
+    Route::get('/passwords', [PasswordApiController::class, 'index']);
+    Route::post('/passwords', [PasswordApiController::class, 'store']);
+    Route::get('/passwords/{id}', [PasswordApiController::class, 'show']);
+    Route::put('/passwords/{id}', [PasswordApiController::class, 'update']);
+    Route::delete('/passwords/{id}', [PasswordApiController::class, 'destroy']);
 });
