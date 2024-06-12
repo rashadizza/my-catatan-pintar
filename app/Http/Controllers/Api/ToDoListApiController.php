@@ -12,9 +12,8 @@ class ToDoListApiController extends Controller
     public function index()
     {
         // Hanya menampilkan ToDo list milik pengguna yang sedang login
-        $todolist = Auth::user()->todolists;
-
-        return response()->json($todolist);
+        $todolist = auth()->user()->todolists;
+        return response()->json($todolist, 200);
     }
 
     public function store(Request $request)
@@ -25,7 +24,9 @@ class ToDoListApiController extends Controller
         ]);
 
         // Menyimpan ToDo list dengan menambahkan user_id yang sesuai
-        $todo = Auth::user()->todolists()->create($attributes);
+        $todo = new ToDoList($attributes);
+        $todo->user()->associate(auth()->user());
+        $todo->save();
 
         return response()->json($todo, 201);
     }
