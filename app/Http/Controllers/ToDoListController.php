@@ -20,8 +20,8 @@ class ToDoListController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
-            'title' => 'required',
-            'description' => 'nullable'
+            'title' => 'required|string',
+            'description' => 'nullable|string'
         ]);
 
         // Menyimpan ToDo list dengan menambahkan user_id yang sesuai
@@ -32,12 +32,18 @@ class ToDoListController extends Controller
 
     public function update(ToDoList $todo)
     {
-        $todo->update(['isDone' => !$todo->isDone]);
+        // Memastikan hanya pemilik yang bisa mengupdate
+        $this->authorize('update', $todo);
+
+        $todo->update(['is_done' => !$todo->is_done]);
         return redirect('/todolist');
     }
     
     public function destroy(ToDoList $todo)
     {
+        // Memastikan hanya pemilik yang bisa menghapus
+        $this->authorize('delete', $todo);
+
         $todo->delete();
         return redirect('/todolist');
     }
