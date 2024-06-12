@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ReminderApiController;
 use App\Http\Controllers\Api\PasswordApiController;
+use App\Http\Controllers\Api\ToDoListApiController;
 
 
 
@@ -27,6 +28,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    // ToDos
+    Route::get('/todos', [ToDoController::class, 'index']);
+    Route::post('/todos', [ToDoController::class, 'store']);
+    Route::get('/todos/{id}', [ToDoController::class, 'show']);
+    Route::put('/todos/{id}', [ToDoController::class, 'update']);
+    Route::delete('/todos/{id}', [ToDoController::class, 'destroy']);
 
     // Reminders
     Route::get('/reminders', [ReminderApiController::class, 'index']);
