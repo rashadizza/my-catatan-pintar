@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ReminderApiController;
 use App\Http\Controllers\Api\PasswordApiController;
-use App\Http\Controllers\Api\ToDoListApiController;
+use App\Http\Controllers\Api\ToDoListApiController; 
+use App\Http\Controllers\Api\NoteApiController;
+use App\Http\Controllers\Api\AzusaController;
 
 // Registration route
 Route::post('/register', [AuthController::class, 'register']);
@@ -19,6 +21,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    
+    // profile
+    Route::get('/profile', [AzusaController::class, 'index']);
+
+    // note
+    Route::get('/note', [NoteApiController::class, 'index']);
+    Route::post('/note', [NoteApiController::class, 'store']);
+    Route::put('/note/{id}', [NoteApiController::class, 'update']);
+    Route::delete('/note/{id}', [NoteApiController::class, 'destroy']);
 
     // ToDos
     Route::get('/todos', [ToDoListApiController::class, 'index']);

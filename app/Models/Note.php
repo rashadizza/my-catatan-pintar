@@ -9,7 +9,11 @@ class Note extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'title', 
+        'text',
+    ];
 
     public function user()
     {
