@@ -65,14 +65,14 @@
                         </li>
                         <li class="min-w-max">
                             <a href="/passwords"
-                                class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
+                                class="btn flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
                                 <i class="lni lni-lock" style="font-size: 25px;"></i>
                                 <span class="group-hover:text-white">Password Manager</span>
                             </a>
                         </li>
                         <li class="min-w-max">
                             <a href="/musicplayer"
-                                class="btn flex items-center px-4 py-3 space-x-4 transition ease-out duration-1000 hover:bg-[#fd53b8] hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white text-[#66fcfb]">
+                                class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
                                 <i class="lni lni-music" style="font-size: 25px;"></i>
                                 <span class="group-hover:text-white">Music Player</span>
                             </a>
@@ -96,16 +96,95 @@
         </div>
         <!--====== SIDE PART ENDS ======-->
         <div style="flex:4" class="flex-item py-3 px-4">
-            <div class="flex-container">
-                <p style="flex:1" class="flex-item text-4xl">Music Player</p>
+        <h1 class="font-bold text-5xl text-center mb-8" style="background: none;">Music Player</h1> 
+            
+
+            <!-- Add Song Form -->
+                <!-- <div class="card-header">Add Song</div> -->
+                <!-- <div class="card-body">
+                    <form action="{{ route('songs.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="video_id" class="form-label">Video ID</label>
+                            <input type="text" class="form-control" id="video_id" name="video_id" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="singer" class="form-label">Singer</label>
+                            <input type="text" class="form-control" id="singer" name="singer" required>
+                        </div>
+                        <button type="submit" class="mb-2 text-white bg-sky-600 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add Song</button>
+                    </form>
+                </div> -->
+
+            <!-- add song form -->
+            <div class="mb-6">
+                <form class="flex flex-col space-4" action="{{ route('songs.store') }}" method="POST">
+                    @csrf
+                    <input type="text" id="title" name="title" placeholder="Song Title" class="py-2.5 px-4 bg-white  rounded-xl">
+                    <div class="mt-4"></div>
+                    <input type="text" id="singer" name="singer" placeholder="Singer" class="py-2.5 px-4 bg-white  rounded-xl">
+                    <div class="mt-4"></div>
+                    <input type="text" id="video_id" name="video_id" placeholder="Video ID" class="py-2.5 px-4 bg-white  rounded-xl">
+                    <div class="mt-4"></div>
+                    <button type="submit" class="w-36 py-4 px-8 bg-sky-600 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white rounded-xl mb-4">Add Song</button>
+                </form>
             </div>
+            
+                <hr class="my-2 border-t-2 border-gray-900">
+                <div style="flex:4" class="flex-item py-3 px-4"></div>
 
-            <br>
-            <!--button import-->
-            <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
-            <div class="commonninja_component pid-52354f58-2d58-46bf-9481-5d6584b5b01f"></div>
-            <script></script>
-            <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+            <!-- song list -->
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Song Title
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Singer
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Video ID
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($songs as $song)
+                            <tr class="odd:bg-white even:bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $song->title }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $song->singer }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $song->video_id }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <form action="{{ route('songs.destroy', $song->id) }}" method="POST"
+                                        class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-white inline-flex items-center transition ease-in-out duration-300">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center py-4">No songs found.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </body>
-
 </html>
