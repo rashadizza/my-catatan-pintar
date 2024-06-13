@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ToDoList;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ToDoListApiController extends Controller
 {
@@ -41,13 +42,20 @@ class ToDoListApiController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Memastikan hanya pemilik yang bisa mengupdate
+        Log::info('Update request received', ['user_id' => Auth::id(), 'request' => $request->all()]);
+
         $todo = ToDoList::where('user_id', Auth::id())->findOrFail($id);
 
-        $todo->update($request->all());
+        $validatedData = $request->validate([
+            'isDone' => 'required|boolean',
+        ]);
+
+        $todo->update(['isDone' => $validatedData['isDone']]);
 
         return response()->json($todo, 200);
     }
+
+
 
     public function destroy($id)
     {
