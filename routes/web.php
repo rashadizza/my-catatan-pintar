@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/passwords/{id}', [PasswordController::class, 'destroy'])->name('passwords.destroy');
 
     // Music Player
-    Route::get('/musicplayer', function () {
-        return view('musicplayer');
-    });
+    Route::get('/musicplayer', [SongController::class, 'index'])->name('songs.index');
+    Route::post('/musicplayer/store', [SongController::class, 'store'])->name('songs.store');
+    Route::delete('/musicplayer/{id}', [SongController::class, 'destroy'])->name('songs.destroy');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
