@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\PasswordApiController;
 use App\Http\Controllers\Api\ToDoListApiController; 
 use App\Http\Controllers\Api\NoteApiController;
 use App\Http\Controllers\Api\AzusaController;
+use App\Http\Controllers\Api\SongController;
 
 // Registration route
 Route::post('/register', [AuthController::class, 'register']);
