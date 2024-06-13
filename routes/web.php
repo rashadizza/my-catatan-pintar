@@ -7,6 +7,7 @@ use App\Http\Controllers\TimerController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\noteController;
+use App\Http\Controllers\SongController;
 
 Route::get('/', function () {
     return view('homepage');
