@@ -50,6 +50,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/passwords/{id}', [PasswordApiController::class, 'update']);
     Route::delete('/passwords/{id}', [PasswordApiController::class, 'destroy']);
 
-    //music
-    Route::get('/songs', 'App\Http\Controllers\SongController@index');
+    //music player
+    Route::get('/musicplayer', [SongController::class, 'index']);
+    // response JSON
+    Route::get('/songs', 'App\Http\Controllers\SongController@indexJson');
 });
